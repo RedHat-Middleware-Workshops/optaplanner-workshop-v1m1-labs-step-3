@@ -2,14 +2,20 @@ package org.optaplanner.examples.cloudbalancing.domain;
 
 import java.util.List;
 
+import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
+import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
 @PlanningSolution
 public class CloudBalance {
     
     private List<CloudComputer> computerList;
     
-    private List<CloudProcess> processList;
+	private List<CloudProcess> processList;
+	
+	private HardSoftScore scoreHolder;
     
     public CloudBalance() {
     }
@@ -22,6 +28,7 @@ public class CloudBalance {
 	/**
 	 * @return the computerList
 	 */
+	@ValueRangeProvider(id = "computerRange")
 	public List<CloudComputer> getComputerList() {
 		return computerList;
 	}
@@ -36,6 +43,7 @@ public class CloudBalance {
 	/**
 	 * @return the processList
 	 */
+	@PlanningEntityCollectionProperty
 	public List<CloudProcess> getProcessList() {
 		return processList;
 	}
@@ -46,6 +54,20 @@ public class CloudBalance {
 	public void setProcessList(List<CloudProcess> processList) {
 		this.processList = processList;
 	}
-    
+
+	/**
+	 * @return the scoreHolder
+	 */
+	@PlanningScore
+	public HardSoftScore getScoreHolder() {
+		return scoreHolder;
+	}
+
+	/**
+	 * @param scoreHolder the scoreHolder to set
+	 */
+	public void setScoreHolder(HardSoftScore scoreHolder) {
+		this.scoreHolder = scoreHolder;
+	}
     
 }
