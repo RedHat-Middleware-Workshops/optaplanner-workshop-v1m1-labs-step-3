@@ -15,7 +15,7 @@ public class CloudBalance {
     
 	private List<CloudProcess> processList;
 	
-	private HardSoftScore scoreHolder;
+	private HardSoftScore score;
     
     public CloudBalance() {
     }
@@ -56,18 +56,18 @@ public class CloudBalance {
 	}
 
 	/**
-	 * @return the scoreHolder
+	 * @return the score
 	 */
 	@PlanningScore
-	public HardSoftScore getScoreHolder() {
-		return scoreHolder;
+	public HardSoftScore getScore() {
+		return score;
 	}
 
 	/**
-	 * @param scoreHolder the scoreHolder to set
+	 * @param score the score to set
 	 */
-	public void setScoreHolder(HardSoftScore scoreHolder) {
-		this.scoreHolder = scoreHolder;
+	public void setCcore(HardSoftScore score) {
+		this.score = score;
 	}
     
 }
